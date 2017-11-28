@@ -68,7 +68,7 @@ class deletelineclient(clientFather.client):
             self.action.doaction()
 
 class editlineclient(clientFather.client):
-    def __int__(self, path, lineNo, content):
+    def __init__(self, path, lineNo, content):
         self.path = path
         self.lineNo = lineNo
         self.content = content

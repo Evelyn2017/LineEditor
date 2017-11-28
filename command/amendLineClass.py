@@ -96,7 +96,7 @@ class editLine(commandFather.commandFather):
         print("\t----- Editing into  file <{}> -----".format(self.path))
         with open(self.path) as file:
             line = file.readlines()
-            line[self.lineNo] = self.editContent
+            line[self.lineNo] = self.editContent + '\n'
             file.close()
         with open(self.path, 'w')as editfile:
             for i in range(len(line)):
@@ -107,20 +107,20 @@ class editLine(commandFather.commandFather):
         print("\t----- Undong command edit -----")
         with open(self.path) as file:
             line = file.readlines()
-            line[self.lineNo] = self.__line
+            line[self.lineNo] = self.__line + '\n'
             file.close()
         with open(self.path, 'w')as editfile:
             for i in range(len(line)):
-                editfile.write(line[i])
+                editfile.write(line[i] )
                 print("\t%d: " % i, line[i])
 
     def redo(self):
         print("\t----- Redoing ----")
         with open(self.path) as file:
             line = file.readlines()
-            line[self.lineNo] = self.editContent
+            line[self.lineNo] = self.editContent + '\n'
             file.close()
         with open(self.path, 'w')as editfile:
             for i in range(len(line)):
-                editfile.write(line[i])
+                editfile.write(line[i] )
                 print("\t%d: " % i, line[i])
