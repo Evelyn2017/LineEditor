@@ -27,14 +27,14 @@ def cut():
         redobuffer = []
         if(command_ls[0] in 'Qq'):
             exit(0)
-        if(command_ls[0] == 'op'):
+        if(command_ls[0] == 'op'):#进入编辑模式
             actop = user.createclient(command_ls[1])
             actop.run(command_ls[0])
             cmdbuffer.append(command_ls)
             while(1):
                 command = editline(actop.filename)
                 command_ls = command.split(' ')
-                if(command_ls[0] == 'exit'):
+                if(command_ls[0] == 'exit'):#退出编辑模式
                     break
                 if(command_ls[0] == 'i'):
                     cmdbuffer.append(command_ls)
