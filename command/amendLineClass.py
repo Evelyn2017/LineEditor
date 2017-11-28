@@ -46,17 +46,17 @@ class insertLine(commandFather.commandFather):
 
 ######################删除行子类#######################################
 class deleteLine(commandFather.commandFather):
-    def __init__(self, path, lineNo):
+    def __init__(self, path, lineNo, content = []):
         self.path = path
         self.lineNo = lineNo
-        self.__line = open(self.path).readlines()[self.lineNo]#存储被删除的那行
+        self.__line = open(self.path).readlines()[self.lineNo - 1]#存储被删除的那行
 #按照行号删除操作
     def execute(self):
         print("\t----- Deleting line of  file <{}> -----".format(self.path))
         with open(self.path) as file:
             line = file.readlines()
             del line[self.lineNo]
-            file.close()
+        file.close()
         with open(self.path, 'w')as delfile:
             for i in range(len(line)):
                 delfile.write(line[i])
